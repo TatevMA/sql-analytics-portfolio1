@@ -82,3 +82,45 @@ ALTER TABLE products
 ADD CONSTRAINT chk_products_price
 CHECK (price >= 0);
 ```
+
+```sql
+CREATE INDEX idx_sales_product_id
+ON sales (product_id);
+SELECT *
+FROM employees
+ORDER BY employee_id DESC;
+
+SELECT
+ product_name,
+  SUM(total_sales) AS total_revenue
+FROM sales_analysis
+GROUP BY product_name
+ORDER BY SUM(total_sales) DESC
+LIMIT 20;
+
+SELECT
+  employee_id,
+  product_id,
+  COUNT(transaction_id) AS number_of_transactions
+FROM sales
+GROUP BY employee_id, product_id
+ORDER BY employee_id, product_id
+
+EXPLAIN
+SELECT
+  category,
+  AVG(price) AS average_price
+FROM products
+GROUP BY category
+ORDER BY AVG(price);
+
+
+SELECT
+    category,
+    SUM(total_sales) AS total_sales_amount
+FROM sales_analysis
+WHERE year = 2022
+GROUP BY category
+HAVING SUM(total_sales) < 100000;
+
+```

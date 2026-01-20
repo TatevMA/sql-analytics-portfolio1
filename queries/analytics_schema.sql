@@ -186,4 +186,11 @@ CSV HEADER;
 
 SELECT * FROM analytics._stg_points;
 
----INSERTS ???
+
+-- In case you are encountering an error 
+--"function postgis_typmod_type(integer) does not exist"
+
+DROP EXTENSION IF EXISTS postgis CASCADE;
+SET search_path TO public;
+CREATE EXTENSION postgis;
+SELECT PostGIS_Version();

@@ -66,3 +66,39 @@ CREATE TABLE analytics.customer_locations (
     customer_id INT PRIMARY KEY REFERENCES analytics.customers(customer_id),
     geom        GEOMETRY(Point, 4326)
 );
+
+CREATE TABLE analytics.city_boundaries (
+    city_id INT PRIMARY KEY REFERENCES analytics.cities(city_id),
+    geom GEOMETRY(Polygon, 4326)
+);
+
+CREATE TABLE analytics.customer_locations (
+    customer_id INT PRIMARY KEY REFERENCES analytics.customers(customer_id),
+    geom GEOMETRY(Point, 4326)
+);
+
+
+-- Staging tables for raw WKT imports
+\echo 'Creating staging tables'
+
+
+CREATE TABLE IF NOT EXISTS analytics._stg_country_boundaries (
+    country_id INT,
+    wkt TEXT
+);
+
+
+CREATE TABLE IF NOT EXISTS analytics._stg_region_boundaries (
+    region_id INT,
+    wkt TEXT
+);
+
+CREATE TABLE IF NOT EXISTS analytics._stg_city_boundaries (
+    city_id INT,
+    wkt TEXT
+);
+
+CREATE TABLE IF NOT EXISTS analytics._stg_points (
+    point_id INT,
+    wkt TEXT
+);

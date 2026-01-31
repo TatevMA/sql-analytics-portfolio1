@@ -18,9 +18,9 @@ my new testing
 13. Each time I finish the job with the database, I stop the containers and remove them typing 'docker compose down' in my VS code terminal.
 
 
-**Session 02: Intro to PostgreSQL**
+#**Session 02: Intro to PostgreSQL**
 
-**Data Storage Structures**
+#**Data Storage Structures**
 A relational database consists of one or more tables made up of rows and columns, and these tables are linked by relationships.
 
 **Keys**
